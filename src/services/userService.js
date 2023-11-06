@@ -3,6 +3,7 @@ import { DatabasePostgres } from '../../database-postgres.js';
 const database = new DatabasePostgres();
 
 export const createUser = async ({ name, email, password}) => {
+if(listUsers(email, 'email')) return {message: 'email já cadastrado'}
   return database.create({
     name,
     email,
@@ -10,8 +11,8 @@ export const createUser = async ({ name, email, password}) => {
   });
 };
 
-export const listUsers = async (search) => {
-  return database.list(search);
+export const listUsers = async (search, param) => {
+  return database.list(search, param);
 };
 
 export const updateUser = async (UserID, { name, email, password }) => {
