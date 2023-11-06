@@ -11,10 +11,10 @@ export class DatabasePostgres {
             VALUES(${userID}, ${name}, ${email}, ${password})`
     }
     //READ
-    async list(search) {
+    async list(search, param) {
         let users
-        if(search){
-            users = await sql`select * from users where name ilike ${'%'+search+'%'}`
+        if(search && param){
+            users = await sql`select * from users where ${'%'+param+'%'} ilike ${'%'+search+'%'}`
         } else{
             users = await sql`select * from users`
         }
