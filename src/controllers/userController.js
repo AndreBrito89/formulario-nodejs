@@ -3,9 +3,9 @@ import { createUser, listUsers, updateUser, deleteUser } from '../services/userS
 export const createUserController = async (request, reply) => {
   const { name, email, password, animais } = request.body;
 
-  await createUser({ name, email, password, animais });
+  const user = await createUser({ name, email, password, animais });
 
-  return reply.status(201).send();
+  return user.message ? reply.status(200).send(user) : reply.status(201).send()
 };
 
 export const listUsersController = async (request) => {
