@@ -13,7 +13,7 @@ CREATE TABLE IF NOT EXISTS animais (
 
 
 `.then(() => {
-    console.log('tabela videos criada.')
+    console.log('tabela users criada.')
 })
 // CREATE TABLE IF NOT EXISTS users (
 //     id      TEXT PRIMARY KEY,
