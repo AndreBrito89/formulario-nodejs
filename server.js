@@ -44,5 +44,5 @@ server.delete('/users/:id', deleteUserController);
 server.listen({
     port: 3333
 }).then(() => {
-    console.log('listening to port 3333');
+    console.log('Server online');
 });
